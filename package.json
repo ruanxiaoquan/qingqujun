@@ -1,22 +1,28 @@
 {
-	"name": "qingqujun",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
-	},
-	"dependencies": {
-		"react": "15.4.2",
-		"react-native": "0.41.2"
-	},
-	"devDependencies": {
-		"babel-jest": "18.0.0",
-		"babel-preset-react-native": "1.9.1",
-		"jest": "18.1.0",
-		"react-test-renderer": "15.4.2"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+  "name": "qingqujun",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "antd-mobile": "^1.0.0",
+    "react": "15.4.2",
+    "react-native": "0.41.2",
+    "react-native-code-push": "^1.17.0-beta",
+    "react-native-storage": "^0.1.5",
+    "react-native-vector-icons": "^4.0.0",
+    "rn-splash-screen": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-jest": "18.0.0",
+    "babel-plugin-import": "^1.1.1",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "18.1.0",
+    "react-test-renderer": "15.4.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }

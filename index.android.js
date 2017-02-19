@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 
+global.__TYPE__ = "android";
+
 export default class qingqujun extends Component {
   render() {
     return (
