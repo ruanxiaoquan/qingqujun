@@ -9,6 +9,7 @@ import {
 import BaseView from "../common/baseView";
 import { TabBar } from 'antd-mobile';
 import Icon from "react-native-vector-icons/FontAwesome";
+import HomeList from "./home/list";
 
 export default class IndexView extends Component {
 
@@ -36,8 +37,8 @@ export default class IndexView extends Component {
                     hidden={this.state.hidden}
                 >
                     <TabBar.Item
-                        icon={require("../images/dongtai.png")}
-                        selectedIcon={require("../images/dongtai-act.png")}
+                        icon={require("../images/shouye.png")}
+                        selectedIcon={require("../images/shouye-act.png")}
                         iconStyle={{ width: 25, height: 25 }}
                         title="首页"
                         key="首页"
@@ -48,11 +49,13 @@ export default class IndexView extends Component {
                             });
                         }}
                     >
-                        {this.renderContent('生活')}
+                        <HomeList />
                     </TabBar.Item>
                     <TabBar.Item
-                        title="口碑"
-                        key="口碑"
+                        icon={require("../images/dongtai.png")}
+                        selectedIcon={require("../images/dongtai-act.png")}
+                        title="动态"
+                        key="动态"
                         badge={'new'}
                         selected={this.state.selectedTab === 1}
                         onPress={() => {
@@ -65,8 +68,10 @@ export default class IndexView extends Component {
                         {this.renderContent('口碑')}
                     </TabBar.Item>
                     <TabBar.Item
-                        title="朋友"
-                        key="朋友"
+                        icon={require("../images/xiaoxi.png")}
+                        selectedIcon={require("../images/xiaoxi-act.png")}
+                        title="消息"
+                        key="消息"
                         dot
                         selected={this.state.selectedTab === 2}
                         onPress={() => {
@@ -78,6 +83,8 @@ export default class IndexView extends Component {
                         {this.renderContent('朋友')}
                     </TabBar.Item>
                     <TabBar.Item
+                        icon={require("../images/wode.png")}
+                        selectedIcon={require("../images/wode-act.png")}
                         title="我的"
                         key="我的"
                         selected={this.state.selectedTab === 3}

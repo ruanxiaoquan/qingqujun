@@ -10,6 +10,8 @@ import {
     View
 } from 'react-native';
 
+import { connect } from 'react-redux';
+
 if (!__DEV__) {
     global.console.log = () => { };
 }
@@ -20,6 +22,7 @@ Storage.init();
 
 import IndexView from "./index";
 import AdView from "./common/ad";
+import LoginView from "./account/login";
 
 class App extends Component {
 
@@ -92,6 +95,8 @@ class App extends Component {
                 return <IndexView  {...route.params} navigator={navigator} route={route} />
             case "ad":
                 return <AdView  {...route.params} navigator={navigator} route={route} />
+            case "login":
+                return <LoginView  {...route.params} navigator={navigator} route={route} />
             default:
                 return (
                     <View>
@@ -106,7 +111,7 @@ class App extends Component {
     render() {
         return (
             <Navigator
-                initialRoute={{ component: AdView, name: "ad", id: "ad" }}
+                initialRoute={{ component: AdView, name: "ad", id: "ad", ...this.props }}
                 configureScene={this.configureScene.bind(this)}
                 renderScene={this.renderScene.bind(this)}
                 onDidFocus={this.onDidFocus.bind(this)}
@@ -115,7 +120,9 @@ class App extends Component {
     }
 }
 
-export default CodePush({
+let root = CodePush({
     checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
     installMode: CodePush.InstallMode.ON_NEXT_RESUME
 })(App);
+
+export default connect()(root);

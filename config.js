@@ -1,7 +1,7 @@
 export default {
     isDev: true,
     dev: {
-        server: "http://deliver.test.youxinpai.com/",
+        server: "http://127.0.0.1:3800/",
         proxy: "",
         net: "http://10.70.14.42:8036/", //.net 接口
         remark: "http://padapi.test.youxinpai.com/", //售后进度

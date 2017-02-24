@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 
 import BaseView from '../../common/baseView'; 
-import Loadding from "../../components/Loadding";
+import Loadding from "../../common/Loadding";
 
 
 export default class BrowserView extends Component {

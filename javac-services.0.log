@@ -361,3 +361,4 @@ org.javacs.NoJavaConfigException: Can't find configuration file for /Users/ruanx
 	at org.javacs.Main.run(Main.java:150)
 	at org.javacs.Main.main(Main.java:69)
 
+INFO	?	main	2017-02-19T16:31:30.636Z	org.javacs.Main#run	Connection closed

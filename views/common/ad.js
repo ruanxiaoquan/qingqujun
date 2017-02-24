@@ -12,10 +12,11 @@ import {
 import SplashScreen from "rn-splash-screen";
 import Cache from "../../common/Storage";
 import AndroidBackTools from '../../components/AndroidBackTools';
+import { connect } from 'react-redux';
 
 let {width, height} = Dimensions.get("window");
 
-export default class AdView extends Component {
+class AdView extends Component {
 
     constructor(props) {
         super(props);
@@ -37,7 +38,7 @@ export default class AdView extends Component {
         if (__TYPE__ == "android") {
             StatusBar.setTranslucent(true);
             StatusBar.setBackgroundColor("transparent");
-        }else{
+        } else {
             StatusBar.setBarStyle("light-content");
         }
         var self = this;
@@ -56,12 +57,11 @@ export default class AdView extends Component {
     }
 
     cb() {
-        this.props.navigator.resetTo({ id: "index" });
-        // if (global.token) {
-        //     this.props.navigator.resetTo({ id: "index" });
-        // } else {
-        //     this.props.navigator.resetTo({ id: "login" });
-        // }
+        if (global.token) {
+            this.props.navigator.resetTo({ id: "index" });
+        } else {
+            this.props.navigator.resetTo({ id: "login" });
+        }
     }
 
 
@@ -103,3 +103,5 @@ const styles = StyleSheet.create({
         height: height
     }
 });
+
+export default connect()(AdView);

@@ -11,8 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-import App from "./views/app";
-
+import App from "./app";
 global.__TYPE__ = "ios";
 
 AppRegistry.registerComponent('qingqujun', () => App);
