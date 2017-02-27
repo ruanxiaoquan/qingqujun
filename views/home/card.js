@@ -11,13 +11,36 @@ import {
 
 import { getPix, height, width, topBarHeight, baseCss, onePix } from '../../common/baseCss';
 
+import ERefresh from  "../../components/ERefresh";
+ 
+
 export default class HomeCard extends Component {
     constructor(props) {
         super(props);
+        this.data = {
+        }
     }
 
-    render() {
-        let data = {};
+    render() { 
+        return ( 
+            <ERefresh
+                ref="ERefresh"
+                method="GET"
+                url="/account/list"
+                renderRow={this.renderRow.bind(this)}
+                onRefreshEnd={data => {
+                    return data;
+                }}
+                onLoadEnd={data => {
+                    return data;
+                }}
+                data={this.data}
+            />
+        );
+    }
+
+
+    renderRow(data) {
         return (
             <View style={css.body}>
                 <View style={[baseCss.row, css.dongtaiRow]}>
@@ -37,7 +60,7 @@ export default class HomeCard extends Component {
                     </View>
                 </View>
                 <TouchableOpacity activeOpacity={1} style={css.dongtaiBody} onPress={() => {
-                     
+
                 }}>
                     <Text>ddd</Text>
                 </TouchableOpacity>

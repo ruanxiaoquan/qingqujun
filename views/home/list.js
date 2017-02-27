@@ -9,6 +9,9 @@ import {
     Dimensions,
 } from 'react-native';
 import { getPix, height, width, topBarHeight, baseCss, onePix } from '../../common/baseCss';
+import ListTabBar from "../../components/ListTabBar";
+import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
+
 import { Tabs } from "antd-mobile";
 import HomeCard from "./card";
 const TabPane = Tabs.TabPane;
@@ -16,157 +19,58 @@ const TabPane = Tabs.TabPane;
 export default class HomeList extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            activeKey: "1"
-        }
-    }
-
-    callback(key) {
-        this.setState({
-            activeKey: key
-        });
+        this.state = {}
     }
 
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <Tabs activeKey={this.state.activeKey} onChange={this.callback.bind(this)}>
-                    <Tabs.TabPane tab="选项一1" key="1">
-                        <HomeCard></HomeCard>
-                    </Tabs.TabPane>
-                    <Tabs.TabPane tab="选项卡2" key="2">
-                        <View>
-                            <Text>选项卡2</Text>
-                        </View>
-                    </Tabs.TabPane>
-                    <Tabs.TabPane tab="选项卡3" key="3">
-                        <View>
-                            <Text>选项卡3</Text>
-                        </View>
-                    </Tabs.TabPane>
-                </Tabs>
-            </View>
+            <ScrollableTabView
+                renderTabBar={() =>
+                    <ListTabBar
+                        style={styles.defBar}
+                        tabStyle={{
+                            paddingBottom: 0
+                        }}
+                    />
+                }
+                style={styles.tab}
+                tabBarUnderlineStyle={{
+                    backgroundColor: "#30abff",
+                    height: 1,
+                }}
+                tabBarActiveTextColor="#30abff"
+                tabBarInactiveTextColor="#000"
+                tabBarTextStyle={{ fontSize: 16, fontWeight: "normal" }}
+                locked={false}
+            >
+                <View tabLabel="tab1" style={{ flex: 1 }}>
+                    <HomeCard />
+                </View>
+                <View tabLabel="tab2" style={{ flex: 1 }}>
+                    <Text>2</Text>
+                </View>
+                <View tabLabel="tab3" style={{ flex: 1 }}>
+                    <Text>3</Text>
+                </View>
+            </ScrollableTabView>
         );
     }
+    
 }
 
-
-const paddingWidth = 10;
-
-const css = StyleSheet.create({
-    dongtai: {
-        width: width - getPix(paddingWidth * 2),
-        height: getPix(368),
-        backgroundColor: "#fff",
-        borderRadius: getPix(10)
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#f2f2f2',
     },
-    body: {
-        borderRadius: getPix(10),
-        width: width - getPix(paddingWidth * 2),
-        backgroundColor: "#fff",
-        paddingTop: getPix(10),
-        paddingBottom: getPix(10),
-        marginBottom: getPix(12)
+    tab: {
+        flex: 1,
     },
-    head: {
-        width: getPix(72),
-        height: getPix(72)
+    defBar: {
+        height: 45,
+        borderTopWidth: 0,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        borderBottomColor: "#e5e5e5",
+        backgroundColor: "#fff"
     },
-    laba: {
-        width: getPix(64),
-        height: getPix(46)
-    },
-    dongtaiRow: {
-        height: getPix(72),
-        marginTop: getPix(30),
-        paddingLeft: getPix(20),
-        paddingRight: getPix(20),
-        alignItems: "center"
-    },
-    dongtaiBody: {
-        paddingLeft: getPix(20),
-        paddingRight: getPix(20),
-        marginTop: getPix(25),
-    },
-    talkText: {
-        fontSize: 13,
-        color: "#272727",
-        lineHeight: 18
-    },
-    bottomBox: {
-        marginTop: getPix(20),
-        paddingBottom: getPix(4),
-    },
-    icon: {
-        width: getPix(32),
-        height: getPix(30)
-    },
-    touchbtn: {
-        height: getPix(100),
-        width: getPix(75),
-        paddingTop: getPix(40),
-        alignItems: "center"
-    },
-    count: {
-        position: "absolute",
-        top: 0,
-        right: 0,
-        width: getPix(40),
-        height: getPix(50),
-        justifyContent: "flex-end",
-        paddingLeft: getPix(10)
-    }, countText: {
-        fontSize: 10,
-        color: "#fcbd54"
-    },
-    updateText: {
-        fontSize: 13,
-        color: "#37acf4"
-    },
-    pinglunBox: {
-        borderTopWidth: StyleSheet.hairlineWidth,
-        borderColor: "#e5e5e5",
-        paddingTop: getPix(40),
-        paddingLeft: getPix(20),
-        paddingRight: getPix(20),
-    },
-    zanRow: {
-        alignItems: "center"
-    },
-    zanName: {
-        fontSize: 13,
-        color: "#1a1a1a",
-        marginLeft: getPix(6)
-    },
-    pinglunItems: {
-        marginTop: getPix(30)
-    },
-    plRow: {
-        marginBottom: getPix(20)
-    },
-    plText: {
-        fontSize: 13,
-        color: "#1a1a1a",
-        lineHeight: 18
-    },
-    reportNewTag: {
-        height: getPix(36),
-        width: getPix(140),
-        borderRadius: getPix(18),
-        backgroundColor: "#ffeaeb"
-    },
-    reportOldTag: {
-        height: getPix(36),
-        width: getPix(140),
-        borderRadius: getPix(18),
-        backgroundColor: "#e0f3ff",
-    },
-    reportNewText: {
-        fontSize: 13,
-        color: "#f9545e"
-    },
-    reportOldText: {
-        fontSize: 13,
-        color: "#37acf4"
-    }
 });
