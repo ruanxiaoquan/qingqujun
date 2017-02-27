@@ -37,9 +37,14 @@ export default class LoginView extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) { 
+        if (this.props.text != nextProps.account.text && !nextProps.account.loadding) {
+            Toast.info(nextProps.account.text);
+        }
+    }
+
     render() {
-        let {navigator, route, doLogin, loadding} = this.props;
-        console.log(this.props);
+        let {navigator, route, doLogin, account} = this.props;
         return (
             <ScrollView bounces={false}>
                 <Image source={require("../../images/bg.png")} style={styles.mian}>
@@ -103,7 +108,7 @@ export default class LoginView extends Component {
                             <Text style={styles.btnText}>登录</Text>
                         </TouchableOpacity>
                     </View>
-                    <Loadding isShow={this.state.loadding} />
+                    <Loadding isShow={account.loadding} />
                 </Image>
             </ScrollView>
         );

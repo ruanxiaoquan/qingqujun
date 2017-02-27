@@ -1,18 +1,15 @@
 import * as types from "../actions/types";
 
 let def = {
-    phone: "",
-    password: ""
+    loadding: false
 }
 
-
-const doLogin = (state = def, action) => {
+let doLogin = (state = def, action) => {
     switch (action.type) {
         case types.SHOW_LOADDING:
-            return {
-                loadding: action.loadding,
-                text: "登录中"
-            };
+            return Object.assign({}, state, {
+                loadding: true
+            });
         case types.DOLOGIN:
             return {
                 request: true,
@@ -20,9 +17,14 @@ const doLogin = (state = def, action) => {
                 password: action.password
             };
         case types.HIDE_LOADDING:
-            return {
-                loadding: action.loadding
-            };
+            return Object.assign({}, state, {
+                loadding: false
+            });
+        case types.LOGINERROR:
+            return Object.assign({}, state, {
+                loadding: false,
+                text: action.text
+            });
         default:
             return state;
     }

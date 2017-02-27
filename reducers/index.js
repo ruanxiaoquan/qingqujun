@@ -1,11 +1,4 @@
-import todos from "./todo";
-import visibilityFilter from "./visibilityfilter";
 import account from "./account";
-import { combineReducers } from "redux";
-
-const app = combineReducers({
-    todos,
+export {
     account
-});
-
-export default app;
+}

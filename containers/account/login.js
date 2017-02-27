@@ -1,21 +1,17 @@
 import { connect } from "react-redux";
-import { doLogin } from "../../actions/account";
-import { showLoadding, hideLoadding } from "../../actions";
+import { bindActionCreators } from "redux";
+import { doLogin } from "../../actions/account"; 
 import LoginView from "../../views/account/login";
 
-
-
-let mapStateToProps = (state) => {
+let mapStateToProps = (state) => { 
     return {
-        loaading: state.loaading,
+        account: state.account
     };
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        doLogin: (phone, password) => dispatch(doLogin(phone, password)),
-        showLoadding: () => dispatch(showLoadding()),
-        hideLoadding: () => dispatch(hideLoadding)
+        doLogin: (phone, password) => dispatch(doLogin(phone, password))
     };
 }
 

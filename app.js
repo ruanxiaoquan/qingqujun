@@ -12,7 +12,7 @@ import {
 import { Provider } from "react-redux";
 import configureStore from './store/index';
 import todoApp from "./reducers";
-import App from "./containers/account/login";
+import App from "./views/app"; 
 
 let store = configureStore(todoApp);
 
@@ -23,7 +23,7 @@ export default class RootView extends Component {
     render() {
         return (
             <Provider store={store}>
-                <App />
+                <App /> 
             </Provider>
         );
     }
