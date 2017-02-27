@@ -1,7 +1,7 @@
 export default {
     isDev: true,
     dev: {
-        server: "http://127.0.0.1:3800/",
+        server: "http://192.168.99.148:3800/",
         proxy: "",
         net: "http://10.70.14.42:8036/", //.net 接口
         remark: "http://padapi.test.youxinpai.com/", //售后进度
@@ -20,7 +20,7 @@ export default {
         image: "http://img3.youxinpai.com/", //图片上传
     },
     cache: {
-        token: "TOKEN",
+        info: "USERINFO",
         search: "CEARCH",
     },
     upload: {

@@ -30,7 +30,7 @@ export default class HomeList extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <Tabs activeKey={this.state.activeKey} onChange={this.callback.bind(this)} swipeable={true}>
+                <Tabs activeKey={this.state.activeKey} onChange={this.callback.bind(this)}>
                     <Tabs.TabPane tab="选项一1" key="1">
                         <HomeCard></HomeCard>
                     </Tabs.TabPane>

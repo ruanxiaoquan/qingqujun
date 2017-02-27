@@ -29,22 +29,22 @@ export default class LoginView extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userName: "qinna",
-            password: "youxinpai,8888",
+            userName: "18500516066",
+            password: "123456",
             loadding: false,
             msg: "",
             tips: ""
         }
     }
 
-    componentWillReceiveProps(nextProps) { 
+    componentWillReceiveProps(nextProps) {
         if (this.props.text != nextProps.account.text && !nextProps.account.loadding) {
             Toast.info(nextProps.account.text);
         }
     }
 
     render() {
-        let {navigator, route, doLogin, account} = this.props;
+        let {navigator, route, doLogin, account} = this.props; 
         return (
             <ScrollView bounces={false}>
                 <Image source={require("../../images/bg.png")} style={styles.mian}>
@@ -102,13 +102,19 @@ export default class LoginView extends Component {
                                 </View>
                             </View>
                         </View>
-                        <TouchableOpacity style={styles.btn} onPress={() => {
-                            doLogin(this.state.userName, this.state.password);
+                        <TouchableOpacity style={styles.btn} disabled={account.loadding} onPress={() => {
+                            doLogin(this.state.userName, this.state.password, navigator);
                         }}>
-                            <Text style={styles.btnText}>登录</Text>
+                            {
+                                account.loadding && <View style={{ marginRight: 10 }}>
+                                    <ActivityIndicator animating={true} color="#fff" />
+                                </View>
+                            }
+                            <View>
+                                <Text style={styles.btnText}>登录</Text>
+                            </View>
                         </TouchableOpacity>
                     </View>
-                    <Loadding isShow={account.loadding} />
                 </Image>
             </ScrollView>
         );
@@ -231,7 +237,8 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         backgroundColor: "rgba(255,255,255,0.3)",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        flexDirection: "row"
     },
     btnText: {
         color: "#fff",
