@@ -53,7 +53,7 @@ export default class Top extends Component {
 
     renderRight() {
         switch (this.props.route.id) {
-            case "index":
+            case "index1":
                 return (
                     <TouchableOpacity onPress={this.logOut.bind(this)} style={[styles.right, { justifyContent: "center", alignItems: "flex-end" }]}>
                         <Text style={{ fontSize: 15, color: "#fff" }}>退出</Text>

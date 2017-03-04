@@ -14,7 +14,7 @@ import Cache from "../../common/Storage";
 import AndroidBackTools from '../../components/AndroidBackTools';
 import { connect } from 'react-redux';
 
-let {width, height} = Dimensions.get("window");
+let { width, height } = Dimensions.get("window");
 
 class AdView extends Component {
 
@@ -57,11 +57,12 @@ class AdView extends Component {
     }
 
     cb() {
-        if (global.token) {
-            this.props.navigator.resetTo({ id: "index" });
-        } else {
-            this.props.navigator.resetTo({ id: "login" });
-        }
+        this.props.navigator.resetTo({ id: "index" });
+        // if (global.token) {
+        //     this.props.navigator.resetTo({ id: "index" });
+        // } else {
+        //     this.props.navigator.resetTo({ id: "login" });
+        // }
     }
 
 

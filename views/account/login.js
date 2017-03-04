@@ -116,65 +116,6 @@ export default class LoginView extends Component {
     componentDidMount() {
 
     }
-
-    doLogin() {
-        let self = this;
-        if (!this.state.userName) {
-            this.setState({
-                tips: "用户名不能为空",
-                toast: true
-            });
-            return;
-        }
-        if (!this.state.password) {
-            this.setState({
-                tips: "密码不能为空",
-                toast: true
-            });
-            return;
-        }
-        if (this.state.toast) {
-            setTimeout(() => {
-                self.setState({
-                    toast: false
-                });
-            }, 2000);
-        }
-        this.setState({
-            loadding: true
-        });
-        net.post("/api/wf_user/login", { username: this.state.userName, password: this.state.password, from: "app" })
-            .then(data => {
-                if (data.code == 1) {
-                    storage.save({
-                        key: config.cache.token,
-                        rawData: {
-                            token: data.data.token,
-                            loginInfo: data.data
-                        }
-                    });
-                    global.token = data.data.token;
-                    global.loginInfo = data.data;
-                    self.setState({
-                        loadding: false
-                    }, () => {
-                        self.props.navigator.resetTo({ id: "index", title: "变形金刚" });
-                    });
-                } else {
-                    self.setState({
-                        loadding: false
-                    }, () => {
-                        Toast.fail(data.message, 2);
-                    });
-                }
-            })
-            .catch(err => {
-                self.setState({
-                    loadding: false,
-                });
-                Toast.offline('当前网络不稳定!!!', 2);
-            });
-    }
 }
 
 

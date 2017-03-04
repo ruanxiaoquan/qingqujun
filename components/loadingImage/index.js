@@ -3,34 +3,60 @@ import {
     View,
     StyleSheet,
     Text,
-    TouchableOpacity,
+    ActivityIndicator,
     Dimensions,
     Image
 } from 'react-native';
 
 
 export default class LoadImage extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            uri: this.props.uri,
-            def: <Image source={this.props.defImage} style={[{ position: "absolute", left: 0, top: 0 }, this.props.style]} />
+            status: 0, //0初始状态，1成功，2失败 
+            loadding: false
         };
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.state.uri != nextProps.uri)
-            this.setState({
-                uri: nextProps.uri
-            });
+    onLoadEnd() {
+        this.setState({
+            status: this.state.status === 1 ? 0 : 2,
+            loadding: false
+        });
+        console.log("调用onLoadEnd");
+    }
+
+    onLoadStart() {
+        this.setState({
+            status: 0,
+            loadding: true
+        });
+    }
+
+    onLoad() {
+        this.setState({
+            status: 1
+        });
+        console.log("调用onLoad");
     }
 
     render() {
+        let props = this.props;
         return (
-            <View style={styles.contarnar}>
-                {this.state.def}
-                <Image source={{ uri: this.state.uri }} style={this.props.style} resizeMode="stretch" onLoad={this.imgLoad.bind(this)} />
-            </View>
+            <Image
+                onLoad={this.onLoad.bind(this)}
+                onLoadEnd={this.onLoadEnd.bind(this)}
+                onLoadStart={this.onLoadStart.bind(this)}
+                {...props}
+            >
+                <View style={styles.contarnar}>
+                    <ActivityIndicator animating={this.state.loadding} color="#000" />
+                    {
+                        this.state.status == 2 ? <Text>图片加载失败</Text> : null
+                    }
+                </View>
+            </Image>
         );
     };
 

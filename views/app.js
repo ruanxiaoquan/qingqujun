@@ -20,7 +20,7 @@ import Storage from '../common/Storage';
 import CodePush from "react-native-code-push";
 Storage.init();
 
-//import IndexView from "../containers/common/index";
+import IndexView from "../containers/index";
 
 import AdView from "../containers/common/ad";
 import LoginView from "../containers/account/login";
