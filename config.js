@@ -1,15 +1,14 @@
 export default {
     isDev: true,
-    dev: {
-        server: "http://127.0.0.1:3800/", 
-        image: "http://img3.youxinpai.com/", //图片上传
+    dev: { 
+        server: "http://127.0.0.1:3800/",  
     },
     production: {
         server: "http://deliver.youxinpai.com/", 
         image: "http://img3.youxinpai.com/", //图片上传
     },
     cache: {
-        token: "TOKEN",
+        info: "USERINFO",
         search: "CEARCH",
     },
     upload: {

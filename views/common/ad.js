@@ -58,11 +58,11 @@ class AdView extends Component {
 
     cb() {
         this.props.navigator.resetTo({ id: "index" });
-        // if (global.token) {
-        //     this.props.navigator.resetTo({ id: "index" });
-        // } else {
-        //     this.props.navigator.resetTo({ id: "login" });
-        // }
+        if (global.token) {
+            this.props.navigator.resetTo({ id: "index" });
+        } else {
+            this.props.navigator.resetTo({ id: "login" });
+        }
     }
 
 

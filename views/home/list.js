@@ -8,6 +8,9 @@ import {
     Dimensions,
 } from 'react-native';
 import { getPix, height, width, topBarHeight, baseCss, onePix } from '../../common/baseCss';
+import ListTabBar from "../../components/ListTabBar";
+import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
+
 import { Tabs } from "antd-mobile";
 import HomeCard from "./card";
 import Image from "../../components/LoadingImage";
@@ -17,7 +20,6 @@ export default class HomeList extends Component {
         super(props);
         this.state = {}
     }
-
 
     render() {
         return (
@@ -31,7 +33,6 @@ export default class HomeList extends Component {
         );
     }
 }
-
 
 const css = StyleSheet.create({
     container: {

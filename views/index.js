@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
     Text,
     Alert,
-    StyleSheet,
+    StyleSheet, 
     View
 } from 'react-native';
 
@@ -10,6 +10,7 @@ import BaseView from "../common/baseView";
 import { TabBar } from 'antd-mobile';
 import Icon from "react-native-vector-icons/FontAwesome";
 import HomeList from "./home/list";
+
 
 export default class IndexView extends Component {
 
@@ -49,7 +50,9 @@ export default class IndexView extends Component {
                             });
                         }}
                     >
-                        <HomeList />
+                        <View style={{ flex: 1, backgroundColor: "#fff" }}>
+                            <HomeList></HomeList>
+                        </View>
                     </TabBar.Item>
                     <TabBar.Item
                         icon={require("../images/dongtai.png")}
@@ -65,7 +68,9 @@ export default class IndexView extends Component {
                         }}
                         data-seed="logId1"
                     >
-                        {this.renderContent('口碑')}
+                        <View style={{ flex: 1, backgroundColor: "#fff" }}>
+                            <Text>22</Text>
+                        </View>
                     </TabBar.Item>
                     <TabBar.Item
                         icon={require("../images/xiaoxi.png")}
@@ -80,7 +85,9 @@ export default class IndexView extends Component {
                             });
                         }}
                     >
-                        {this.renderContent('朋友')}
+                        <View style={{ flex: 1, backgroundColor: "#fff" }}>
+                            <Text>33</Text>
+                        </View>
                     </TabBar.Item>
                     <TabBar.Item
                         icon={require("../images/wode.png")}
@@ -94,7 +101,9 @@ export default class IndexView extends Component {
                             });
                         }}
                     >
-                        {this.renderContent('我的')}
+                        <View style={{ flex: 1, backgroundColor: "#fff" }}>
+                            <Text>4</Text>
+                        </View>
                     </TabBar.Item>
                 </TabBar>
             </BaseView>

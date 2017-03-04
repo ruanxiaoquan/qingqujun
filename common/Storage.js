@@ -1,7 +1,8 @@
 import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
-import config from "../config";
+import config from "../config"; 
 export default {
+
     init() {
         global.storage = new Storage({
             size: 1000,
@@ -13,7 +14,7 @@ export default {
     },
     token(success, fail) {
         storage.load({
-            key: config.cache.token,
+            key: config.cache.info,
             autoSync: false
         }).then(ret => {
             success(ret);
@@ -23,7 +24,7 @@ export default {
     },
     LogOut() {
         global.token = "";
-        storage.remove({ key: config.cache.token });
+        storage.remove({ key: config.cache.info });
     },
     searchData(success, fail) {
         storage.load({

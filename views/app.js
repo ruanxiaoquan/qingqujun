@@ -15,11 +15,12 @@ import { connect } from 'react-redux';
 if (!__DEV__) {
     global.console.log = () => { };
 }
-
-import Storage from '../common/Storage';
 import CodePush from "react-native-code-push";
+<<<<<<< HEAD
 Storage.init();
 
+=======
+>>>>>>> 1dfbba48a7dd0787b6e4e57d85e6cca6d6ac5cbb
 import IndexView from "../containers/index";
 
 import AdView from "../containers/common/ad";

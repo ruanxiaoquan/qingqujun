@@ -89,7 +89,7 @@ export default class ERefresh extends Component {
         return Platform.OS == 'android' ?
             (
                 <View style={styles.loaddingCol}>
-                    <Spinner style={this.state.moreBoxCss} isVisible={true} size={12} type={this.Type.Circle} color={"#999999"} />
+                    <Spinner style={this.state.moreBoxCss} isVisible={true} size={12} type={this.Type.Wave} color={"#999999"} />
                 </View>
             ) : (
                 <View style={styles.loaddingCol}>

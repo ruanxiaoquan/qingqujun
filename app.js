@@ -14,6 +14,9 @@ import configureStore from './store/index';
 import todoApp from "./reducers";
 import App from "./views/app"; 
 
+import Storage from './common/Storage';
+Storage.init();
+
 let store = configureStore(todoApp);
 
 export default class RootView extends Component {
